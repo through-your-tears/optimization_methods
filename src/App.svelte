@@ -23,7 +23,7 @@
 		</div>
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="headingTwo">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+				<button class="accordion-button bg-success text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 					Задание 2(метод дихотомии)
 				</button>
 			</h2>
@@ -47,7 +47,7 @@
 		</div>
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="headingFour">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+				<button class="accordion-button bg-success text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
 					Задание 2(метод золотого сечения)
 				</button>
 			</h2>
