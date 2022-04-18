@@ -27,9 +27,8 @@
                 a = y;
                 b = z;
             }
-
             print.push({"id": `4<sup>${i}</sup>`, "ans": `a<sub>${i+1}</sub> = ${a}, b<sub>${i+1}</sub> = ${b}`});
-            print.push({"id": `6<sup>${i}</sup>`, "ans": `L<sup>${i+2}</sup> = [${a}, ${b}], |L|<sup>${i+2}</sup> = ${Math.abs(a - b)}, l = ${eps * 2}`});
+            print.push({"id": `5<sup>${i}</sup>`, "ans": `L<sup>${i+2}</sup> = [${a}, ${b}], |L|<sup>${i+2}</sup> = ${Math.abs(a - b)}, l = ${eps * 2}`});
             i++;
             pred_pogr = Math.abs(a - b) / 2;
         }
