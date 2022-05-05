@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Dihotomiya from "./Dihotomiya.svelte";
-	import Gold from "./Gold.svelte";
-	import Swann from "./Swann.svelte";
-	import Fibonacci from "./Fibonacci.svelte";
+	import Dihotomiya from "./methods/Dihotomiya.svelte";
+	import Gold from "./methods/Gold.svelte";
+	import Swann from "./methods/Swann.svelte";
+	import Fibonacci from "./methods/Fibonacci.svelte";
 	const methods: object[] = [
 		{
 			"id": "One",
