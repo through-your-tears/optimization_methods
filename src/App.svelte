@@ -3,6 +3,7 @@
 	import Gold from "./methods/Gold.svelte";
 	import Swann from "./methods/Swann.svelte";
 	import Fibonacci from "./methods/Fibonacci.svelte";
+	import UniformSearch from "./methods/UniformSearch.svelte";
 	const methods: object[] = [
 		{
 			"id": "One",
@@ -27,6 +28,12 @@
 			"component": Gold,
 			"name": "Метод золотого сечения",
 			"passed": true
+		},
+		{
+			"id": "Five",
+			"component": UniformSearch,
+			"name": "Метод равномерного поиска",
+			"passed": false
 		},
 	]
 </script>
