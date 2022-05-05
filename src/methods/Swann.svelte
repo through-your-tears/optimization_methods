@@ -12,6 +12,8 @@
         let f0: number = f(x - eps);
         let f1: number = f(x);
         let f2: number = f(x + eps);
+        print.push({"id": "1<sup>0</sup>", "ans": `t ${eps}, x = ${x}`})
+        print.push({"id": "2<sup>0</sup>", "ans": `f(x - t) = ${f0}, f(x) = ${f0}, f(x + t) = ${f2}`})
         if(f0 >= f1 && f1 <= f2) {
             return [x-eps, x+eps];
         } else while(f0 >= f1 && f1 <= f2 && i < 1000) {
@@ -32,23 +34,30 @@
                 delta = eps;
                 a = x;
                 x += eps;
+                print.push({"id": "4<sup>0</sup>", "ans": `delta = ${delta}, a = ${a}`})
             }
             else {
                 delta = eps * -1;
                 b = x;
                 x -= eps;
+                print.push({"id": "4<sup>0</sup>", "ans": `delta = ${delta}, b = ${b}`})
             }
             let xk = x + Math.pow(2, k) * delta;
+            print.push({"id": `5<sup>${k-1}</sup>`, "ans": `x<sup>k+1</sup> = x<sup>k</sup> + 2<sup>k</sup> * delta = ${xk}`})
             while (f(xk) < f(x)) {
                 if (delta == eps) {
                     a = x;
+                    print.push({"id": `6<sup>${k-1}</sup>`, "ans": `f(x<sup>k+1</sup>) = ${f(xk)}, f(x<sup>k</sup>) = ${f(x)}, a = ${a}`})
                 }
                 else {
                     b = x;
+                    print.push({"id": `6<sup>${k-1}</sup>`, "ans": `f(x<sup>k+1</sup>) = ${f(xk)}, f(x<sup>k</sup>) = ${f(x)}, b = ${b}`})
                 }
+
                 x = xk;
                 xk = x + Math.pow(2, k) * delta;
                 k++;
+                print.push({"id": `5<sup>${k-1}</sup>`, "ans": `x<sup>k+1</sup> = x<sup>k</sup> + 2<sup>k</sup> * delta = ${xk}`})
             }
             if (delta == eps) {
                 b = xk;
@@ -56,14 +65,15 @@
             else {
                 a = xk;
             }
+            print.push({"id": `6<sup>${k-1}</sup>`, "ans": `f(x<sup>k+1</sup>) = ${f(xk)}, f(x<sup>k</sup>) = ${f(x)}, a = ${a}, b = ${b}`})
             return [a, b];
         }
     }
     let ans: number[] = swann(f, 0.5);
 </script>
 
-<!--{#each print as p}-->
-<!--    <h3>Шаг {@html p.id}</h3>-->
-<!--    <p>{@html p.ans}</p>-->
-<!--{/each}-->
+{#each print as p}
+    <h3>Шаг {@html p.id}</h3>
+    <p>{@html p.ans}</p>
+{/each}
 <h3>Ответ: a,b = {ans}</h3>
