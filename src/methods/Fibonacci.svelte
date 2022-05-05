@@ -67,7 +67,6 @@
         pred_pogr = Math.abs(a - b) / 2;
         return (a + b) / 2;
     }
-    // переделай ебучие кривые выводы()
     let ans:number = fibonacci(f, a, b, eps, del);
 </script>
 
