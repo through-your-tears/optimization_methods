@@ -5,37 +5,38 @@
     function random (min: number, max: number): number {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+    let print: object[] = [];
     function swann(fun: (x: number) => number, eps: number): any {
-        let x: number = random(1, 100);
+        let x: number = random(-100, 100);
+        let i: number = 0;
         let f0: number = f(x - eps);
         let f1: number = f(x);
         let f2: number = f(x + eps);
-        let i: number = 0;
-        while (f0 > f1 < f2 && i < 100) {
-            f0= f(x - eps);
+        if(f0 >= f1 && f1 <= f2) {
+            return [x-eps, x+eps];
+        } else while(f0 >= f1 && f1 <= f2 && i < 1000) {
+            let x: number = random(-100, 100);
+            f0 = f(x - eps);
             f1 = f(x);
-            f2= f(x + eps);
+            f2 = f(x + eps);
             i++;
         }
-        if(i == 100) {
-            return "Не удаётся найти решение"
-        }
-        if(f0 >= f1 <= f2) {
-            return [f0, f2];
+        if (i == 1000) {
+            return "Функция не является унимодальной";
         } else {
             let a: number;
             let b: number;
             let delta: number;
             let k: number = 1;
-            if(f0 >= f1 >= f2) {
+            if(f0 >= f1 && f1 >= f2) {
                 delta = eps;
                 a = x;
                 x += eps;
             }
-            else if(f0 <= f1 <= f2) {
+            else {
                 delta = eps * -1;
                 b = x;
-                x += eps;
+                x -= eps;
             }
             let xk = x + Math.pow(2, k) * delta;
             while (f(xk) < f(x)) {
@@ -65,4 +66,4 @@
 <!--    <h3>Шаг {@html p.id}</h3>-->
 <!--    <p>{@html p.ans}</p>-->
 <!--{/each}-->
-<h3>Ответ: x = {ans}</h3>
+<h3>Ответ: a,b = {ans}</h3>
