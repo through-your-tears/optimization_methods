@@ -1,12 +1,12 @@
 <script lang="ts">
-    function f(x: number): number {
+    function fun(x: number): number {
         return x * x - 4 * x + 7;
     }
     function random (min: number, max: number): number {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     let print: object[] = [];
-    function swann(fun: (x: number) => number, eps: number): any {
+    function swann(f: (x: number) => number, eps: number): any {
         let x: number = random(-100, 100);
         let i: number = 0;
         let f0: number = f(x - eps);
@@ -69,7 +69,7 @@
             return [a, b];
         }
     }
-    let ans: number[] = swann(f, 0.5);
+    let ans: number[] = swann(fun, 0.5);
 </script>
 
 {#each print as p}

@@ -3,7 +3,7 @@
     function random (min: number, max: number): number {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    function swann(fun: (x: number) => number, eps: number): any {
+    function swann(f: (x: number) => number, eps: number): any {
         let x: number = random(-100, 100);
         let i: number = 0;
         let f0: number = f(x - eps);
@@ -66,16 +66,16 @@
             return [a, b];
         }
     }
-    function f(x: number) {
+    function fun(x: number) {
         return x * x - 4 * x + 7;
     }
     const eps: number = 0.5;
-    const L: any = swann(f, eps);
+    const L: any = swann(fun, eps);
     const a: number = L[0];
     const b: number = L[1];
     const n = 100;
 
-    function uniform_search(fun: (x: number) => number, a: number, b: number, n: number): number {
+    function uniform_search(f: (x: number) => number, a: number, b: number, n: number): number {
         let points: number[] = [];
         for (let i: number = 0; i < n; ++i) {
             points.push(a + (b - a) / (n + 1));
@@ -92,7 +92,7 @@
         print.push({"id": `7`, "ans": `x<sub>*</sub> = ${minx} ∈ [${a}, ${b}], min = ${min}`})
         return minx;
     }
-    let ans: number = uniform_search(f, a, b, n);
+    let ans: number = uniform_search(fun, a, b, n);
 </script>
 
 {#each print as p}
