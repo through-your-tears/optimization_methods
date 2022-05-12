@@ -4,6 +4,7 @@
 	import Swann from "./methods/Swann.svelte";
 	import Fibonacci from "./methods/Fibonacci.svelte";
 	import UniformSearch from "./methods/UniformSearch.svelte";
+	import HalfDivision from "./methods/HalfDivision.svelte";
 	const methods: object[] = [
 		{
 			"id": "One",
@@ -35,6 +36,12 @@
 			"name": "Метод равномерного поиска",
 			"passed": false
 		},
+		{
+			"id": "Six",
+			"component": HalfDivision,
+			"name": "Метод половинного деления",
+			"passed": false
+		}
 	]
 </script>
 
